@@ -1,0 +1,331 @@
+:root {
+    --bg: #0b0b0b;
+    --text: #f7f7f7;
+    --accent: #ff7518; /* Classic Orange */
+    --card-bg: rgba(0, 0, 0, 0.7);
+}
+
+.light {
+    --bg: #faf6f1;
+    --text: #1c1c1c;
+    --accent: #e55c00; /* Darker Orange */
+    --card-bg: rgba(255, 255, 255, 0.9);
+}
+
+/* --- General & Layout Styles --- */
+body {
+    background: var(--bg) url('https://images.unsplash.com/photo-1603644041220-6b421e4fdf07?auto=format&fit=crop&w=1600&q=80') no-repeat center center/cover;
+    color: var(--text);
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    padding: 50px 0; /* Adjusted for better viewport padding */
+    transition: background 0.5s, color 0.5s;
+    overflow-x: hidden;
+    min-height: 100vh;
+    position: relative;
+    background-attachment: fixed;
+}
+
+/* Background Overlay for Contrast */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: -1;
+}
+.light::before {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+main {
+    position: relative;
+    z-index: 10;
+}
+
+h1 {
+    font-family: 'Creepster', cursive;
+    font-size: 3.5rem;
+    color: var(--accent);
+    text-shadow: 0 0 10px rgba(255, 117, 24, 0.8);
+    transition: 0.5s;
+}
+
+/* Section Cards & Base Styles */
+header, footer, .section {
+    background: var(--card-bg);
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(255, 117, 24, 0.4);
+    max-width: 900px;
+    border: 1px solid rgba(255, 117, 24, 0.2);
+}
+
+/* Navigation Links (Assumes custom nav structure from previous enhancements) */
+nav a {
+    color: var(--text);
+    margin: 0 10px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: var(--accent);
+    text-shadow: 0 0 5px var(--accent);
+}
+
+/* --- Button & Form Styles --- */
+button {
+    background-color: var(--accent);
+    border: none;
+    padding: 12px 30px;
+    margin: 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px var(--accent);
+    background-color: #ff5500;
+}
+
+/* Trick or Treat Input */
+#trickOrTreatForm input {
+    padding: 12px;
+    border-radius: 8px;
+    border: 2px solid var(--accent);
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text);
+    margin: 10px;
+    width: 60%;
+    max-width: 300px;
+    outline: none;
+    transition: border-color 0.3s, background 0.3s;
+}
+
+#trickOrTreatForm input:focus {
+    border-color: #ff0000;
+    box-shadow: 0 0 10px #ff0000;
+}
+
+.result-message {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 10px;
+    background: var(--accent); 
+    color: white; 
+    font-size: 1.3rem;
+    font-weight: bold;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    animation: spookyFadeIn 0.8s ease; 
+}
+
+/* --- Leaderboard Styles --- */
+#leaderboard h2 {
+    color: var(--accent);
+    text-shadow: 0 0 8px var(--accent);
+}
+
+#recentResults {
+    list-style: none;
+    padding: 0;
+}
+
+#recentResults li {
+    margin: 8px auto;
+    padding: 10px;
+    background: rgba(255, 117, 24, 0.1);
+    border-radius: 8px;
+    max-width: 600px;
+    transition: 0.3s;
+    border-left: 5px solid var(--accent);
+    text-align: left;
+    padding-left: 20px;
+}
+
+#recentResults li:hover {
+    background: rgba(255, 117, 24, 0.2);
+    transform: translateY(-2px);
+}
+
+/* --- Event Section & Image Styles --- */
+.event-list {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+}
+
+.event-list li {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 20px;
+    border-radius: 10px;
+    width: 30%;
+    min-width: 280px;
+    margin: 10px;
+    text-align: left;
+    transition: transform 0.4s;
+}
+
+.event-list li:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+}
+
+.event-list h3 {
+    color: #ff00ff; /* Spooky highlight color */
+    text-shadow: 0 0 5px #ff00ff;
+}
+
+.festival-img, .section img, .event-img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 15px auto;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+}
+.event-img {
+    margin-top: 15px; /* Separate image margin from text content */
+}
+
+/* --- Spooky Quote Styles (Cleaned) --- */
+.spooky-quote {
+    position: relative;
+    margin: 20px auto;
+    padding: 15px 20px;
+    max-width: 80%;
+    background: rgba(10, 10, 10, 0.85); 
+    border-left: 5px solid var(--accent); 
+    border-radius: 5px;
+    box-shadow: 0 0 15px rgba(255, 117, 24, 0.6), 
+                0 0 5px rgba(255, 0, 255, 0.4);
+    font-style: italic;
+    font-size: 1.1rem;
+    line-height: 1.5;
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+}
+
+.spooky-quote::before {
+    content: "“";
+    position: absolute;
+    top: 5px;
+    left: 10px;
+    font-size: 4rem;
+    color: var(--accent);
+    opacity: 0.2;
+    z-index: 1; 
+}
+
+.spooky-quote cite {
+    display: block;
+    margin-top: 10px;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 0.95rem;
+    text-align: right;
+    color: #ff00ff;
+    text-shadow: 0 0 8px rgba(255, 0, 255, 0.8);
+}
+
+/* Light Mode Adjustments */
+.light .spooky-quote {
+    background: rgba(255, 255, 255, 0.9);
+    color: var(--text);
+    box-shadow: 0 0 15px rgba(229, 92, 0, 0.5);
+}
+.light .spooky-quote cite {
+    color: #cc00cc;
+    text-shadow: none;
+}
+
+/* --- Keyframes & Animations (Cleaned) --- */
+@keyframes spookyFadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* Floating Ghost */
+.floating-ghost {
+    position: fixed;
+    width: 100px;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0.9;
+    animation: ghostFloat 4s ease-in-out;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+@keyframes ghostFloat {
+    0% { transform: translate(-50%, 0); opacity: 0; }
+    50% { transform: translate(-50%, -50px); opacity: 1; }
+    100% { transform: translate(-50%, 0); opacity: 0; }
+}
+
+/* Falling Candy */
+.candy {
+    position: fixed;
+    top: -10px;
+    font-size: 24px;
+    animation: fall linear forwards;
+    pointer-events: none;
+    z-index: 999;
+}
+
+@keyframes fall {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(100vh); opacity: 0; }
+}
+
+/* Floating Pumpkins BG */
+@keyframes floatPumpkin {
+    0% { transform: translateY(0) rotate(0deg); opacity: 0.7; }
+    50% { transform: translateY(-30px) rotate(5deg); opacity: 1; }
+    100% { transform: translateY(0) rotate(0deg); opacity: 0.7; }
+}
+
+.pumpkin {
+    position: fixed;
+    font-size: 32px;
+    animation: floatPumpkin 5s infinite ease-in-out;
+    opacity: 0.7;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* --- Media Queries (Essential Responsiveness) --- */
+@media (max-width: 768px) {
+    body {
+        padding: 20px 0;
+    }
+    h1 {
+        font-size: 2.5rem;
+    }
+    .event-list li {
+        width: 90%;
+        min-width: unset;
+        margin: 10px auto;
+    }
+    #trickOrTreatForm input {
+        width: 80%;
+    }
+    button {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+}

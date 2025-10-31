@@ -1,0 +1,13 @@
+halloween_festival/
+├── index.php                 # Main entry point and presentation layer
+├── style.css                 # All CSS, including Dark/Light theme variables and animations
+├── script.js                 # AJAX handling, theme toggle, and animation triggers
+├── trick_or_treat.php        # The PHP API endpoint (handles POST for game logic and GET for leaderboard data via JSON)
+├── includes/
+│   ├── header.php            # HTML header and navigation
+│   ├── footer.php            # HTML footer
+│   └── functions.php         # Core PHP logic (save_result, get_trick_or_treat, get_recent_results)
+├── images/                   # Placeholder folder for image assets
+└── data/                     # Directory created by PHP to store results
+    └── results.txt           # File-based database for logging results
+└── README.md                 # Project documentation
