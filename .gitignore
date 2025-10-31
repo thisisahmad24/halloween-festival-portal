@@ -1,0 +1,23 @@
+# --- Dynamic and User Data ---
+# This ignores the file where the Trick or Treat results are saved.
+# It prevents dynamic content from being tracked by Git.
+data/results.txt
+# It's safer to ignore the whole directory if it only holds dynamic data.
+data/
+
+# --- Development Environment and OS Files ---
+# Ignore common PHP development and system files
+*.log
+*.sql
+*.cache
+*.session
+
+# Ignore configuration files that might contain sensitive info (if you create any later)
+*.env
+config/*.local.php
+
+# Ignore XAMPP/Windows and common editor files
+Thumbs.db
+.DS_Store
+.idea/
+.vscode/
